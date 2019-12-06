@@ -1,0 +1,26 @@
+<div *ngIf="valueClicked">
+  <p-dataView [value]="showEmails()">
+    <ng-template let-email pTemplate="listItem">
+      <div *ngIf="valueClicked==2">
+        {{email.to}}
+      </div>
+      <div *ngIf="valueClicked!=2">
+        {{email.from}}
+      </div>
+      <div>
+        {{email.subject}}
+      </div>
+      <div>
+        {{email.message}}
+      </div>
+      <br/>
+      <button (click)="deleteEmail(email)">Delete Email</button>
+      <div *ngIf="valueClicked!=3">
+        <button (click)="archiveEmail(email)">Mark as Archived</button>
+      </div>
+      <br/>
+      <br/>
+    </ng-template>
+  </p-dataView>
+</div>
+

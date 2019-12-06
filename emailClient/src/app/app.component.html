@@ -1,0 +1,32 @@
+<h1>Email Client</h1>
+<div class="pull-right">
+  <button *ngIf="!createBtnClicked" (click)="createEmail()">Create Email</button>
+</div>
+<div *ngIf="createBtnClicked">
+  <app-email-create></app-email-create>
+</div>
+<div *ngIf="!createBtnClicked">
+  <div class="container container-fluid"></div>
+  <div class="col-sm-12">
+    <ul>
+      <li>
+        <button (click)="onInboxClicked()">Inbox</button>
+      </li>
+      <br/>
+      <li>
+        <button (click)="onSentClicked()">Sent</button>
+      </li>
+      <br/>
+      <li>
+        <button (click)="onArchivedClicked()">Archived</button>
+      </li>
+    </ul>
+  </div>
+  <hr>
+  <br/>
+  <br/>
+  <div class="col-sm-12">
+    <app-email-list [valueClicked]="valueChanged"></app-email-list>
+  </div>
+  <br/>
+</div>
